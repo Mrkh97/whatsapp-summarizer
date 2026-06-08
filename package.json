@@ -1,0 +1,13 @@
+{
+  "name": "whatsapp-ai-summarizer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chrome extension that summarizes the current WhatsApp Web chat with OpenRouter.",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

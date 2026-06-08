@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WhatsApp AI Summarizer</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>WhatsApp AI Summarizer</h1>
+        <p>Summarize the open WhatsApp Web chat.</p>
+      </header>
+
+      <section class="settings" aria-label="OpenRouter settings">
+        <label for="apiKey">OpenRouter API key</label>
+        <input id="apiKey" type="password" autocomplete="off" placeholder="sk-or-...">
+
+        <label for="modelName">Model name</label>
+        <input id="modelName" type="text" autocomplete="off" placeholder="openai/gpt-4o-mini">
+      </section>
+
+      <section class="window" aria-label="Time window">
+        <label for="lookbackValue">Lookback</label>
+        <div class="row">
+          <input id="lookbackValue" type="number" min="1" max="30" step="1" value="8">
+          <select id="lookbackUnit">
+            <option value="hours">hours</option>
+            <option value="days">days</option>
+          </select>
+        </div>
+
+        <label for="summaryLanguage">Summary language</label>
+        <select id="summaryLanguage">
+          <option value="auto">Auto</option>
+          <option value="tr">Turkish</option>
+          <option value="en">English</option>
+        </select>
+      </section>
+
+      <button id="summarizeButton" type="button">Summarize current chat</button>
+
+      <section id="status" class="status" aria-live="polite"></section>
+      <section id="result" class="result" aria-live="polite"></section>
+    </main>
+    <script type="module" src="dist/popup.js"></script>
+  </body>
+</html>
