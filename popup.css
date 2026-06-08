@@ -42,6 +42,10 @@ section {
   margin-bottom: 14px;
 }
 
+.hidden {
+  display: none;
+}
+
 label {
   display: block;
   margin: 12px 0 6px;
@@ -52,6 +56,7 @@ label {
 
 input,
 select,
+textarea,
 button {
   width: 100%;
   border-radius: 8px;
@@ -59,7 +64,8 @@ button {
 }
 
 input,
-select {
+select,
+textarea {
   min-height: 40px;
   border: 1px solid #cfd8d2;
   padding: 9px 10px;
@@ -69,6 +75,7 @@ select {
 
 input:focus,
 select:focus,
+textarea:focus,
 button:focus {
   outline: 2px solid #1f8f58;
   outline-offset: 2px;
@@ -80,6 +87,11 @@ button:focus {
   gap: 8px;
 }
 
+.row button {
+  min-height: 40px;
+  margin: 0;
+}
+
 button {
   min-height: 42px;
   border: 0;
@@ -89,6 +101,12 @@ button {
   background: #128c56;
   font-weight: 700;
   cursor: pointer;
+}
+
+button.secondary {
+  border: 1px solid #cfd8d2;
+  color: #17211c;
+  background: #ffffff;
 }
 
 button:disabled {
@@ -105,6 +123,27 @@ button:disabled {
 
 .status.error {
   color: #a12b2b;
+}
+
+.command-help {
+  border-top: 1px solid #dfe6e1;
+  padding-top: 12px;
+}
+
+.command-help label {
+  margin-top: 0;
+}
+
+.command-help textarea {
+  min-height: 108px;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.command-help button {
+  margin-bottom: 0;
 }
 
 .result {

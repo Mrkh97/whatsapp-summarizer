@@ -22,16 +22,7 @@ export type CollectMessagesResponse = {
   error?: string;
 };
 
-export type SummarizeMessagesRequest = {
-  type: "SUMMARIZE_MESSAGES";
-  apiKey: string;
-  modelName: string;
-  summaryLanguage: SummaryLanguage;
-  lookbackLabel: string;
-  messages: ChatMessage[];
-};
-
-export type SummarizeMessagesResponse = {
+export type SummarizeMessagesResult = {
   ok: boolean;
   summary?: string;
   error?: string;

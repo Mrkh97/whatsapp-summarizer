@@ -13,12 +13,15 @@
         <p>Summarize the open WhatsApp Web chat.</p>
       </header>
 
-      <section class="settings" aria-label="OpenRouter settings">
-        <label for="apiKey">OpenRouter API key</label>
-        <input id="apiKey" type="password" autocomplete="off" placeholder="sk-or-...">
+      <section class="settings" aria-label="Ollama settings">
+        <label for="ollamaEndpoint">Ollama endpoint</label>
+        <input id="ollamaEndpoint" type="url" autocomplete="off" placeholder="http://localhost:11434">
 
-        <label for="modelName">Model name</label>
-        <input id="modelName" type="text" autocomplete="off" placeholder="openai/gpt-4o-mini">
+        <label for="ollamaModel">Ollama model</label>
+        <div class="row">
+          <select id="ollamaModel"></select>
+          <button id="refreshModelsButton" class="secondary" type="button">Refresh</button>
+        </div>
       </section>
 
       <section class="window" aria-label="Time window">
@@ -42,6 +45,11 @@
       <button id="summarizeButton" type="button">Summarize current chat</button>
 
       <section id="status" class="status" aria-live="polite"></section>
+      <section id="commandHelp" class="command-help hidden" aria-label="Terminal command help">
+        <label for="commandText">Terminal commands</label>
+        <textarea id="commandText" readonly rows="4"></textarea>
+        <button id="copyCommandButton" class="secondary" type="button">Copy commands</button>
+      </section>
       <section id="result" class="result" aria-live="polite"></section>
     </main>
     <script type="module" src="dist/popup.js"></script>

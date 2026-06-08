@@ -34,6 +34,8 @@ async function collectMessages(request: CollectMessagesRequest): Promise<Collect
     };
   }
 
+  await scrollToLatestMessages(scroller);
+
   let previousSignature = "";
   let stableRounds = 0;
   let reachedCutoff = false;
@@ -299,6 +301,32 @@ function findChatScroller(): HTMLElement | undefined {
     .sort((a, b) => b.scrollHeight - a.scrollHeight);
 
   return candidates[0];
+}
+
+async function scrollToLatestMessages(scroller: HTMLElement): Promise<void> {
+  let stableRounds = 0;
+  let previousSignature = "";
+
+  for (let attempt = 0; attempt < 30; attempt += 1) {
+    scroller.scrollTop = scroller.scrollHeight;
+    await wait(400);
+
+    const signature = `${Math.round(scroller.scrollTop)}:${scroller.scrollHeight}`;
+
+    if (signature === previousSignature) {
+      stableRounds += 1;
+    } else {
+      stableRounds = 0;
+      previousSignature = signature;
+    }
+
+    if (stableRounds >= 2) {
+      break;
+    }
+  }
+
+  scroller.scrollTop = scroller.scrollHeight;
+  await wait(1000);
 }
 
 function wait(milliseconds: number): Promise<void> {

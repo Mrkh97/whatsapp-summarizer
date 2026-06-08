@@ -1,5 +1,6 @@
 declare const chrome: {
   runtime: {
+    id: string;
     onMessage: {
       addListener(
         callback: (
@@ -30,3 +31,9 @@ declare const chrome: {
     sendMessage(tabId: number, message: unknown): Promise<unknown>;
   };
 };
+
+interface Navigator {
+  userAgentData?: {
+    platform?: string;
+  };
+}
