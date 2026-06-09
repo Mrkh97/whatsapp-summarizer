@@ -2,6 +2,10 @@
 
 Chrome extension for summarizing the currently open WhatsApp Web conversation with local Ollama.
 
+## Install
+
+If you want to use the extension, add it to your browser from the [Chrome Web Store](https://chromewebstore.google.com/detail/whatsapp-ai-summarizer/blgalfhnfnnkopkgbkinhpcfljgdfika).
+
 ## Setup
 
 1. Install dependencies:
